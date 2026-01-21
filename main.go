@@ -15,12 +15,6 @@ func main() {
 		exec.Command("adb", "shell", "uiautomator", "dump").Run()
 		out, _ := exec.Command("adb", "shell", "cat", "/sdcard/window_dump.xml").Output()
 		xmlStr := string(out)
-		/*
-			if strings.Contains(xmlStr, `package="com.android.vending"`) || (strings.Contains(xmlStr, `text="About this game"`) && strings.Contains(xmlStr, `package="com.android.vending"`)) {
-				exec.Command("adb", "shell", "am", "start", "-n", "com.badoo.mobile/.android.BadooActivity").Run()
-				fmt.Println("Changing Apps back to Badoo 📲")
-			}
-		*/
 		if !strings.Contains(xmlStr, `package="com.badoo.mobile"`) {
 			exec.Command("adb", "shell", "am", "start", "-n", "com.badoo.mobile/.android.BadooActivity").Run()
 			fmt.Println("Changing Apps back to Badoo 📲")
