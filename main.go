@@ -30,7 +30,7 @@ func main() {
 
 		if strings.Contains(xmlStr, "Average rating 4.7 stars in 28 thousand reviews") {
 			exec.Command("adb", "shell", "input", "swipe", "540", "960", "540", "760", "200").Run()
-			fmt.Println(" Glam Screw Ad, so pressing Back 🔙")
+			fmt.Println(" Glam Ad, so pressing Back 🔙")
 			continue
 		}
 
