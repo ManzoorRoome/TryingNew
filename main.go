@@ -53,7 +53,11 @@ func main() {
 			fmt.Println("👋 Program End 🔚")
 			return
 		}
-
+		if strings.Contains(xmlStr, "We don’t have a video to display right now, please come back soon!") {
+			exec.Command("adb", "shell", "input", "tap", "877", "1311").Run()
+			fmt.Println("👋 Program End 🔚")
+			return
+		}
 		if strings.Contains(xmlStr, `text="Watch A Video"`) {
 			exec.Command("adb", "shell", "input", "tap", "540", "1657").Run()
 			fmt.Println("Dismissing pop-up 🌤️")
@@ -71,8 +75,8 @@ func main() {
 		}
 
 		if strings.Contains(xmlStr, "Keeta") {
-			exec.Command("adb", "shell", "input", "swipe", "900", "1000", "100", "1000", "300").Run()
-			fmt.Println("Swiped left on Keeta 🛵🍕")
+			//exec.Command("adb", "shell", "input", "swipe", "900", "1000", "100", "1000", "300").Run()
+			fmt.Println("Found Keeta ad")
 		}
 
 		if strings.Contains(xmlStr, `com.badoo.mobile:id/ad_container`) {
