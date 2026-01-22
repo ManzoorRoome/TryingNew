@@ -71,8 +71,8 @@ func main() {
 		}
 
 		if strings.Contains(xmlStr, "Keeta") {
-			exec.Command("adb", "shell", "input", "swipe", "900", "1000", "100", "1000", "300").Run()
-			fmt.Println("Swiped left on Keeta 🛵🍕")
+			//exec.Command("adb", "shell", "input", "swipe", "900", "1000", "100", "1000", "300").Run()
+			fmt.Println("Found Keeta ad")
 		}
 
 		if strings.Contains(xmlStr, `com.badoo.mobile:id/ad_container`) {
