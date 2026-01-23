@@ -63,7 +63,7 @@ func main() {
 			fmt.Println("Dismissing pop-up 🌤️")
 		}
 
-		if strings.Contains(xmlStr, "Don&#39;t miss out! Install") || strings.Contains(xmlStr, "Shapedly Shop Now") || strings.Contains(xmlStr, `text="AI Hub: Photo, Video Generator"`) {
+		if strings.Contains(xmlStr, "Don&#39;t miss out! Install") || strings.Contains(xmlStr, "Shapedly Shop Now") || strings.Contains(xmlStr, `text="AI Hub: Photo, Video Generator"`) || strings.Contains(xmlStr, "SHOP NOW 👉") {
 			exec.Command("adb", "shell", "am", "start", "-n", "com.badoo.mobile/.android.BadooActivity").Run()
 			fmt.Println("Yalla Ad found")
 			time.Sleep(time.Millisecond * 500)
