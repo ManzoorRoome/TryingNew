@@ -53,13 +53,17 @@ func main() {
 			fmt.Println("👋 Program End 🔚")
 			return
 		}
-
+		if strings.Contains(xmlStr, "We don’t have a video to display right now, please come back soon!") {
+			exec.Command("adb", "shell", "input", "tap", "877", "1311").Run()
+			fmt.Println("👋 Program End 🔚")
+			return
+		}
 		if strings.Contains(xmlStr, `text="Watch A Video"`) {
 			exec.Command("adb", "shell", "input", "tap", "540", "1657").Run()
 			fmt.Println("Dismissing pop-up 🌤️")
 		}
 
-		if strings.Contains(xmlStr, "Don&#39;t miss out! Install") || strings.Contains(xmlStr, "Shapedly Shop Now") || strings.Contains(xmlStr, `text="AI Hub: Photo, Video Generator"`) {
+		if strings.Contains(xmlStr, "Don&#39;t miss out! Install") || strings.Contains(xmlStr, "Shapedly Shop Now") || strings.Contains(xmlStr, `text="AI Hub: Photo, Video Generator"`) || strings.Contains(xmlStr, "SHOP NOW 👉") {
 			exec.Command("adb", "shell", "am", "start", "-n", "com.badoo.mobile/.android.BadooActivity").Run()
 			fmt.Println("Yalla Ad found")
 			time.Sleep(time.Millisecond * 500)
@@ -71,8 +75,8 @@ func main() {
 		}
 
 		if strings.Contains(xmlStr, "Keeta") {
-			exec.Command("adb", "shell", "input", "swipe", "900", "1000", "100", "1000", "300").Run()
-			fmt.Println("Swiped left on Keeta 🛵🍕")
+			//exec.Command("adb", "shell", "input", "swipe", "900", "1000", "100", "1000", "300").Run()
+			fmt.Println("Found Keeta ad")
 		}
 
 		if strings.Contains(xmlStr, `com.badoo.mobile:id/ad_container`) {
